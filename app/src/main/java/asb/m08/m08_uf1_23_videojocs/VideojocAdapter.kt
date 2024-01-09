@@ -20,7 +20,16 @@ class VideojocAdapter (private val context: Context, private val videojocs: Muta
     {
         val videojocCaratula = view.findViewById(R.id.ImgVwCaratulaList) as ImageView
         val videojocTitol = view.findViewById(R.id.TxtVwTitolList) as TextView
-        val videojocJugadors = view.findViewById(R.id.TxtVwJugsList) as TextView
+        //val videojocJugadors = view.findViewById(R.id.TxtVwJugsList) as TextView
+
+        /*
+        val videojocCaratula: ImageView
+        val videojocTitol = view.findViewById(R.id.TxtVwTitolList) as TextView
+        //val videojocJugadors = view.findViewById(R.id.TxtVwJugsList) as TextView
+        init {
+            videojocCaratula = view.findViewById(R.id.ImgVwCaratulaList)
+        }
+        */
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideojocViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
@@ -34,14 +43,23 @@ class VideojocAdapter (private val context: Context, private val videojocs: Muta
     bindVideojoc(holder, videojoc)
     }
     override fun getItemCount() = videojocs.size
+    /*
     fun bindVideojoc(holder: VideojocViewHolder, videojoc: Videojoc)
     {
         val videojocPath = context.getFilesDir().toString() + "/img/" + videojoc.imatge
         val bitmap = BitmapFactory.decodeFile(videojocPath)
         holder.videojocCaratula?.setImageBitmap(bitmap)
         holder.videojocTitol?.text = videojoc.titol
-        holder.videojocJugadors?.text = "Jugadors: " + videojoc.jugadors
+        //holder.videojocJugadors?.text = "Jugadors: " + videojoc.jugadors
     }
+    */
+    fun bindVideojoc(holder: VideojocViewHolder, videojoc: Videojoc) {
+        holder.videojocCaratula?.setImageResource(videojoc.imatge)
+        holder.videojocTitol?.text = videojoc.titol
+        //holder.videojocJugadors?.text = "Jugadors: " + videojoc.jugadors
+    }
+
+
     fun setOnClickListener(listener: View.OnClickListener)
     {
         clickListener = listener
