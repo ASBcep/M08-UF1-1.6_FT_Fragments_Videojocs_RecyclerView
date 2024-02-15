@@ -1,6 +1,34 @@
 package asb.m08.m08_uf1_23_videojocs
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class MainActivity : AppCompatActivity(), MyOnClickListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val listFragment = supportFragmentManager.findFragmentById(R.id.FrgList) as ListFragment
+        listFragment.setListener(this)
+    }
+
+    override fun onClick(videojoc: Videojoc) {
+        val DetailsFragment = supportFragmentManager.findFragmentById(R.id.FrgDetails) as DetailsFragment?
+        if(DetailsFragment == null)//mòbil en comptes de tablet
+        {
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("videojoc",videojoc)
+            startActivity(intent)
+        } else //tablet en comptes de mòbil
+        {
+            DetailsFragment.setVideojoc(videojoc)
+        }
+    }
+}
+
+/*
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -38,8 +66,8 @@ class MainActivity : AppCompatActivity() {
             val lblVideojocJugadors = findViewById(R.id.TxtVwJugs) as TextView
             lblVideojocJugadors.text = "Jugadors: " + videojoc.jugadors
         }
-    }
-    fun getVideojocs(): MutableList<Videojoc>{
+    }*/
+    /*fun getVideojocs(): MutableList<Videojoc>{
         return mutableListOf(
         Videojoc("Red Dead Redemption II", R.drawable.rdr2, 150000000),
         Videojoc("Grand Theft Auto V", R.drawable.gtav, 1000000000),
@@ -52,5 +80,4 @@ class MainActivity : AppCompatActivity() {
         Videojoc("Hogwarts Legacy", R.drawable.hogwartslegacy, 514789),
         Videojoc("International Rally Championship", R.drawable.irc, 130000),
         )
-    }
-}
+    }*/

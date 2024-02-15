@@ -1,16 +1,14 @@
 package asb.m08.m08_uf1_23_videojocs
 
-import android.content.Context
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 
-class VideojocAdapter (private val context: Context, private val videojocs: MutableList<Videojoc>):
+class VideojocAdapter(private val context: FragmentActivity, private val videojocs: MutableList<Videojoc>):
     RecyclerView.Adapter<VideojocAdapter.VideojocViewHolder>(),
     View.OnClickListener
 {

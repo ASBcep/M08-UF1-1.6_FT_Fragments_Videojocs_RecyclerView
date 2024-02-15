@@ -9,26 +9,24 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class DetailsFragment : Fragment() {
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_details, container, false)
-
-        // Obté les dades del videojoc dels arguments (o d'on sigui que les passis)
-        val videojoc = arguments?.getParcelable<Videojoc>("videojoc")
-
-        // Actualitza els elements de la vista amb les dades del videojoc
-        val lblVideojocTitol = view.findViewById<TextView>(R.id.TxtVwTitol)
-        val imgVideojoc = view.findViewById<ImageView>(R.id.ImgVwCaratula)
-        val lblVideojocJugadors = view.findViewById<TextView>(R.id.TxtVwJugs)
-
-        videojoc?.let {
-            lblVideojocTitol.text = it.titol
-            imgVideojoc.setImageResource(it.imatge)
-            lblVideojocJugadors.text = "Jugadors: ${it.jugadors}"
-        }
-
+    ): View?
+    {
+        //obtenim el layout del fragment (unió kotlin - xml)
+        var view = inflater.inflate(R.layout.fragment_details, container, false)
         return view
+    }
+    fun setVideojoc(videojoc: Videojoc)
+    {
+        var ImgVwCaratula = view?.findViewById<ImageView>(R.id.ImgVwCaratula)
+        ImgVwCaratula?.setImageResource(videojoc.imatge)
+        var TxtVwTitol = view?.findViewById<TextView>(R.id.TxtVwTitol)
+        TxtVwTitol?.text = videojoc.titol
+        var TxtVwJugs = view?.findViewById<TextView>(R.id.TxtVwJugs)
+        TxtVwJugs?.text = "Jugadors: " + videojoc.jugadors.toString()
     }
 }
