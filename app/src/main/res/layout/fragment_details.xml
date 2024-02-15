@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <ImageView
+            android:id="@+id/ImgVwCaratula"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/TxtVwTitol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Si us plau, selecciona un videojoc de la llista."
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:id="@+id/TxtVwJugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="programat per Alex Saborit i Bolea"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            android:layout_margin="10dp"
+            />
+    </LinearLayout>
+
+</FrameLayout>
