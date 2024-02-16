@@ -10,15 +10,17 @@
     <ImageView
         android:id="@+id/ImgVwCaratulaList"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
+        android:src="@drawable/pkmnamarillo"
         />
     <TextView
         android:id="@+id/TxtVwTitolList"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
         android:padding="10dp"
+        android:text="Nom del videojoc"
         />
     <!--TextView
         android:id="@+id/TxtVwJugsList"
