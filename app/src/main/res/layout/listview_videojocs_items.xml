@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:paddingVertical="10dp"
     >
     <ImageView
         android:id="@+id/ImgVwCaratulaList"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         />
     <TextView
         android:id="@+id/TxtVwTitolList"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:padding="3dp"
+        android:padding="10dp"
         />
     <!--TextView
         android:id="@+id/TxtVwJugsList"
